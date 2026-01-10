@@ -15,8 +15,29 @@
             margin: 0;
             font-family: 'Courier New', Courier, monospace;
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            scrollbar-gutter: stable; /* FIX: Prevents layout shift */
         }
         
+        /* Consistent Back Nav Styling */
+        .back-nav {
+            position: absolute;
+            top: 40px;
+            left: 8%;
+        }
+
+        .back-nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .back-nav a:hover {
+            color: #00d4ff;
+        }
+
         .container { 
             text-align: center; 
             width: 100%;
@@ -71,7 +92,13 @@
             margin-top: 20px;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 20px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+            }
             #timer { gap: 10px; }
             .unit { min-width: 70px; padding: 15px; }
             .number { font-size: 2rem; }
@@ -82,8 +109,12 @@
 </head>
 <body>
 
+<nav class="back-nav">
+    <a href="index.html">← RETURN TO GROUND STATE</a>
+</nav>
+
 <div class="container">
-    <h1>Baker's Count Down</h1>
+    <h1>Baker's Countdown</h1>
     
     <div id="timer">
         <div class="unit"><span id="days" class="number">00</span><div class="label">Days</div></div>
@@ -103,19 +134,16 @@
         const now = new Date().getTime();
         const distance = targetDate - now;
 
-        // Time calculations
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
         const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Update display
         document.getElementById("days").innerText = d.toString().padStart(2, '0');
         document.getElementById("hours").innerText = h.toString().padStart(2, '0');
         document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
         document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
 
-        // Logic for when countdown ends
         if (distance < 0) {
             clearInterval(countdown);
             document.querySelector(".container").innerHTML = "<h1>Countdown Complete</h1>";
