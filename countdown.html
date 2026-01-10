@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baker's Countdown</title>
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #00d4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .container { 
+            text-align: center; 
+            width: 100%;
+            padding: 20px;
+        }
+
+        h1 { 
+            font-size: 2.5rem;
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .unit {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            min-width: 120px;
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .label { 
+            font-size: 0.9rem; 
+            color: #55aaff; 
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .sub-footer {
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            color: rgba(0, 212, 255, 0.7);
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            #timer { gap: 10px; }
+            .unit { min-width: 70px; padding: 15px; }
+            .number { font-size: 2rem; }
+            h1 { font-size: 1.5rem; }
+            .sub-footer { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Baker's Countdown</h1>
+    
+    <div id="timer">
+        <div class="unit"><span id="days" class="number">00</span><div class="label">Days</div></div>
+        <div class="unit"><span id="hours" class="number">00</span><div class="label">Hrs</div></div>
+        <div class="unit"><span id="minutes" class="number">00</span><div class="label">Min</div></div>
+        <div class="unit"><span id="seconds" class="number">00</span><div class="label">Sec</div></div>
+    </div>
+
+    <div class="sub-footer">WINSTON-SALEM CREW 2026</div>
+</div>
+
+<script>
+    // Target Date: Feb 12, 2026, 1:51 PM
+    const targetDate = new Date("February 12, 2026 13:51:00").getTime();
+
+    const countdown = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        // Time calculations
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update display
+        document.getElementById("days").innerText = d.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+
+        // Logic for when countdown ends
+        if (distance < 0) {
+            clearInterval(countdown);
+            document.querySelector(".container").innerHTML = "<h1>Countdown Complete</h1>";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
