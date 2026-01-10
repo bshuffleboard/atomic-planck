@@ -19,7 +19,7 @@
             background-image: 
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 80px 80px;
+            background-size: 60px 60px;
             background-attachment: fixed;
         }
 
@@ -38,11 +38,11 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .brand-logo {
-            height: 80px; 
+            height: 45px;
             width: auto;
             display: block;
         }
@@ -50,9 +50,10 @@
         .logo-text {
             font-family: 'Courier New', monospace;
             font-weight: 700;
-            font-size: 2.2rem;
+            font-size: 1.4rem;
             text-transform: uppercase;
             color: var(--atomic-blue);
+            letter-spacing: 1px;
         }
 
         nav a {
@@ -70,46 +71,47 @@
         }
 
         .hero {
-            padding: 140px 8% 80px;
-            max-width: 1100px;
+            padding: 120px 8% 80px;
+            max-width: 1000px;
         }
 
+        /* RESTORED: Equation Style */
         .equation {
             font-family: 'Courier New', monospace;
             color: var(--atomic-blue);
-            font-size: 3.5rem; 
+            font-size: 2.5rem; 
             font-weight: 700;
             margin-bottom: 20px;
             display: inline-block;
             letter-spacing: 8px;
             text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            border-left: 6px solid var(--atomic-blue);
-            padding-left: 25px;
+            border-left: 4px solid var(--atomic-blue);
+            padding-left: 20px;
             line-height: 1;
         }
 
         h1 {
-            font-size: 4.8rem;
+            font-size: 3.5rem;
             margin: 10px 0 0 0;
-            line-height: 0.95;
+            line-height: 1.1;
             font-weight: 800;
-            letter-spacing: -3px;
+            letter-spacing: -1px;
             color: white;
             text-transform: uppercase;
         }
 
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.25rem;
             color: #a0a0a0;
-            margin: 40px 0;
+            margin: 30px 0;
             max-width: 750px;
             line-height: 1.5;
         }
 
         .delta-cta {
-            background: #000;
-            border: 1px solid var(--atomic-blue);
-            padding: 60px;
+            background: rgba(0, 212, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 50px;
             margin: 40px 8%;
             display: flex;
             justify-content: space-between;
@@ -117,20 +119,22 @@
             gap: 40px;
         }
 
-        .delta-info h2 { margin: 0; font-size: 2.2rem; color: white; }
-        .delta-info p { color: var(--atomic-blue); font-family: monospace; margin: 10px 0 0; }
+        .delta-info h2 { margin: 0; font-size: 1.8rem; color: white; }
+        .delta-info p { color: #888; font-family: monospace; margin: 10px 0 0; }
 
         .form-group {
             display: flex;
-            border: 1px solid var(--atomic-blue);
+            background: #000;
+            border: 1px solid var(--border);
+            padding: 5px;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
         }
 
         input {
             background: transparent;
             border: none;
-            padding: 18px;
+            padding: 12px 15px;
             color: white;
             flex-grow: 1;
             outline: none;
@@ -140,33 +144,36 @@
             background: var(--atomic-blue);
             color: var(--deep-obsidian);
             border: none;
-            padding: 0 30px;
+            padding: 12px 25px;
             font-weight: 900;
             cursor: pointer;
             text-transform: uppercase;
+            font-size: 0.8rem;
         }
 
         .pillar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1px;
             background: var(--border);
-            margin: 80px 8% 120px;
+            margin: 60px 8% 100px;
         }
 
         .pillar {
             background: var(--deep-obsidian);
-            padding: 50px;
+            padding: 40px;
+            transition: 0.3s;
         }
 
-        .pillar h3 { color: var(--atomic-blue); font-size: 1rem; letter-spacing: 3px; margin-top:0; }
-        .pillar p { color: #888; line-height: 1.6; }
+        .pillar:hover { background: rgba(0, 212, 255, 0.05); }
+        .pillar h3 { color: var(--atomic-blue); font-size: 0.9rem; letter-spacing: 2px; margin-top:0; }
+        .pillar p { color: #888; line-height: 1.5; font-size: 0.9rem; }
 
         footer {
-            padding: 80px 8%;
+            padding: 60px 8%;
             border-top: 1px solid var(--border);
             color: #444;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             display: flex;
             justify-content: space-between;
         }
@@ -180,16 +187,16 @@
             <div class="logo-text">AtomicPlanck</div>
         </div>
         <nav>
-    <a href="countdown.html">COUNTDOWN</a>
-    <a href="archive.html">ARCHIVE</a>
-    <a href="the-delta.html">THE DELTA</a>
-    <a href="audit.html">GEOMETRY AUDIT</a>
-		</nav>
+            <a href="countdown.html">COUNTDOWN</a>
+            <a href="archive.html">ARCHIVE</a>
+            <a href="the-delta.html">THE DELTA</a>
+            <a href="audit.html">GEOMETRY AUDIT</a>
+        </nav>
     </header>
 
     <section class="hero">
         <div class="equation">E = hf</div>
-        <h1>Architectural Integrity.</h1>
+        <h1>Architectural Integrity for the <span style="color:var(--atomic-blue)">Intelligent Observer</span>.</h1>
         <p>
             Eliminating <strong>Architectural Entropy</strong>. We guide organizations from fragmented, stacked vendor chaos to a single, merged path—governed by the fundamental constants of the Fortinet Security Fabric.
         </p>
@@ -198,37 +205,15 @@
     <section class="delta-cta">
         <div class="delta-info">
             <h2>THE DELTA</h2>
-            <p>// 24 ARCHIVED EDITIONS AVAILABLE</p>
+            <p>// 24 ARCHIVED SE NEWSLETTERS AVAILABLE</p>
         </div>
         <div class="form-group">
-            <input type="email" placeholder="Enter corporate email for the audit...">
-            <button>JOIN THE FABRIC</button>
+            <input type="email" placeholder="Corporate email for the monthly audit...">
+            <button>Join the Fabric</button>
         </div>
     </section>
 
     <div class="pillar-grid">
         <div class="pillar">
-            <h3>01. THE SIMPLE TRUTH</h3>
-            <p>Moving from "Stacked Shapes" to a Merged Path. Infrastructure governed by geometry, not market hype.</p>
-        </div>
-        <div class="pillar">
-            <h3>02. SECURITY GEOMETRY</h3>
-            <p>Security as an intrinsic property of the network. Reducing the attack surface through vector-perfect design.</p>
-        </div>
-        <div class="pillar">
-            <h3>03. CLOUD SOVEREIGNTY</h3>
-            <p>Establishing an unshakeable "Golden Image" architecture. Sovereignty over your data across the Delta.</p>
-        </div>
-        <div class="pillar">
-            <h3>04. THE OBSERVER (AI)</h3>
-            <p>AI as the Intelligent Observer. Continuous monitoring of entropy to maintain the system's ground state.</p>
-        </div>
-    </div>
-
-    <footer>
-        <div>SOVEREIGN ARCHITECTURE // 2026</div>
-        <div style="color: var(--atomic-blue)">ATOMICPLANCK.IO</div>
-    </footer>
-
-</body>
-</html>
+            <h3>CLOUD SOVEREIGNTY</h3>
+            <p>Maintaining control of the ground state regardless of where your data resides. Infrastructure governed by physics, not hype.</p>
