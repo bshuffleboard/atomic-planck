@@ -19,9 +19,10 @@
             background-image: 
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
-            background-size: 80px 80px;
+            background-size: 60px 60px; /* Aligned with your new index grid */
             background-attachment: fixed;
             line-height: 1.6;
+            scrollbar-gutter: stable; /* FIX: Prevents layout shift between pages */
         }
 
         header {
@@ -36,50 +37,70 @@
             z-index: 100;
         }
 
-        .logo-container { display: flex; align-items: center; gap: 20px; text-decoration: none; }
-        .brand-logo { height: 50px; width: auto; }
-        .logo-text { font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.5rem; color: var(--atomic-blue); text-transform: uppercase; }
+        .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .brand-logo { height: 45px; width: auto; } /* Scaled to match index */
+        .logo-text { font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.4rem; color: var(--atomic-blue); text-transform: uppercase; letter-spacing: 1px; }
 
         .content-wrap { padding: 60px 8% 100px; max-width: 900px; margin: 0 auto; }
         
-        /* Consistent Back Nav Styling */
         .back-nav { margin-bottom: 40px; }
         .back-nav a { 
             color: #888; 
             text-decoration: none; 
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             letter-spacing: 2px; 
             font-weight: 600;
             text-transform: uppercase;
         }
         .back-nav a:hover { color: var(--atomic-blue); }
 
-        h1 { font-family: 'Courier New', monospace; font-size: 3.5rem; color: var(--atomic-blue); margin-bottom: 40px; }
+        h1 { 
+            font-family: 'Courier New', monospace; 
+            font-size: clamp(2.2rem, 8vw, 3.5rem); /* Mobile Responsive Scaling */
+            color: var(--atomic-blue); 
+            margin-bottom: 40px; 
+            text-transform: uppercase;
+        }
         
-        .intro-lead { font-size: 1.5rem; color: white; margin-bottom: 60px; font-weight: 300; }
+        .intro-lead { font-size: clamp(1.2rem, 4vw, 1.5rem); color: white; margin-bottom: 60px; font-weight: 300; }
 
         .section { margin-bottom: 80px; }
-        h2 { color: var(--atomic-blue); font-family: 'Courier New', monospace; font-size: 1.2rem; letter-spacing: 3px; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { color: var(--atomic-blue); font-family: 'Courier New', monospace; font-size: 1.1rem; letter-spacing: 3px; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 30px; }
 
         .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .stat-box { background: rgba(0, 212, 255, 0.05); border-left: 3px solid var(--atomic-blue); padding: 30px; }
         .stat-box h3 { margin-top: 0; color: white; }
 
         .cta-box { background: #000; border: 1px solid var(--atomic-blue); padding: 60px; text-align: center; margin-top: 100px; }
-        .cta-box h2 { border: none; font-size: 2rem; color: white; margin-bottom: 20px; }
+        .cta-box h2 { border: none; font-size: 2rem; color: white; margin-bottom: 20px; font-family: 'Inter', sans-serif; font-weight: 800; }
         
         footer {
             margin-top: 100px;
             padding-top: 40px;
             border-top: 1px solid var(--border);
             color: #444;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-align: center;
         }
 
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 768px) {
-            .philosophy-grid { grid-template-columns: 1fr; }
-            h1 { font-size: 2.5rem; }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px 5%;
+                text-align: center;
+            }
+
+            .content-wrap { padding: 40px 5% 60px; }
+
+            .back-nav { text-align: center; }
+
+            .philosophy-grid { grid-template-columns: 1fr; } /* Stacks the boxes only on small screens */
+            
+            .cta-box { padding: 40px 20px; }
+            
+            .cta-box h2 { font-size: 1.5rem; }
         }
     </style>
 </head>
