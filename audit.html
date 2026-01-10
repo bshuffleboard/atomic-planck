@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Audit | AtomicPlanck.io</title>
+    <style>
+        :root {
+            --atomic-blue: #00d4ff;
+            --deep-obsidian: #0a0a0c; 
+            --border: rgba(0, 212, 255, 0.15);
+        }
+
+        body {
+            background-color: var(--deep-obsidian);
+            color: #e0e0e0;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-attachment: fixed;
+            padding: 80px 8%;
+        }
+
+        .back-nav { margin-bottom: 40px; }
+        .back-nav a { 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 0.8rem; 
+            letter-spacing: 2px; 
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .back-nav a:hover { color: var(--atomic-blue); }
+
+        h1 { font-family: 'Courier New', monospace; font-size: 3rem; color: var(--atomic-blue); margin: 0; }
+        .subtitle { color: #888; font-family: monospace; margin-top: 10px; letter-spacing: 1px; }
+
+        .audit-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+            max-width: 1200px;
+        }
+
+        .audit-info h2 { color: white; font-size: 1.8rem; margin-bottom: 20px; }
+        .audit-info p { line-height: 1.6; color: #a0a0a0; margin-bottom: 20px; }
+
+        form {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+
+        .form-group { margin-bottom: 25px; }
+        label { display: block; color: var(--atomic-blue); font-family: monospace; font-size: 0.8rem; margin-bottom: 8px; }
+        
+        input, select, textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 12px;
+            color: white;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        input:focus { border-color: var(--atomic-blue); outline: none; }
+
+        button {
+            background: var(--atomic-blue);
+            color: var(--deep-obsidian);
+            border: none;
+            padding: 15px 30px;
+            font-weight: 900;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .location-tag {
+            color: var(--atomic-blue);
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .audit-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html">← RETURN TO GROUND STATE</a>
+    </nav>
+
+    <h1>GEOMETRY AUDIT</h1>
+    <div class="subtitle">// ELIMINATING ARCHITECTURAL ENTROPY</div>
+
+    <div class="audit-container">
+        <div class="audit-info">
+            <h2>The Peer Review</h2>
+            <p>A Geometry Audit is a technical deep-dive into the "merged path" of your current infrastructure. As a Fortinet Systems Engineer, I facilitate these sessions to identify where vendor entropy is creating heat, friction, or visibility gaps.</p>
+            
+            <p><strong>This is not a sales discovery call.</strong> This is an engineering-first whiteboard session focused on:</p>
+            <ul style="color: #888; font-size: 0.9rem; line-height: 2;">
+                <li>Fabric Integration Analysis</li>
+                <li>Zero-Trust Vector Mapping</li>
+                <li>Converged SASE/SD-WAN Geometry</li>
+                <li>Operational Ground-State Optimization</li>
+            </ul>
+
+            <span class="location-tag">SERVING TAMPA & SOUTH FLORIDA MARKETS</span>
+        </div>
+
+        <div class="audit-form">
+            <form action="#">
+                <div class="form-group">
+                    <label>FULL NAME</label>
+                    <input type="text" placeholder="Engineer/Architect Name">
+                </div>
+                <div class="form-group">
+                    <label>CORPORATE EMAIL</label>
+                    <input type="email" placeholder="name@company.com">
+                </div>
+                <div class="form-group">
+                    <label>PRIMARY FOCUS</label>
+                    <select>
+                        <option>SD-WAN / SASE Convergence</option>
+                        <option>Zero Trust (ZTNA)</option>
+                        <option>Cloud Sovereignty</option>
+                        <option>General Fabric Audit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>BRIEF NOTES ON CURRENT ENTROPY</label>
+                    <textarea rows="4" placeholder="Describe current friction points..."></textarea>
+                </div>
+                <button type="submit">REQUEST AUDIT</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
