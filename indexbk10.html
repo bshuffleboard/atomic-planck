@@ -75,10 +75,11 @@
             max-width: 1000px;
         }
 
+        /* RESTORED: Equation Style */
         .equation {
             font-family: 'Courier New', monospace;
             color: var(--atomic-blue);
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            font-size: 2.5rem; 
             font-weight: 700;
             margin-bottom: 20px;
             display: inline-block;
@@ -90,7 +91,7 @@
         }
 
         h1 {
-            font-size: clamp(2.2rem, 8vw, 3.5rem);
+            font-size: 3.5rem;
             margin: 10px 0 0 0;
             line-height: 1.1;
             font-weight: 800;
@@ -100,7 +101,7 @@
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 3vw, 1.25rem);
+            font-size: 1.25rem;
             color: #a0a0a0;
             margin: 30px 0;
             max-width: 750px;
@@ -137,7 +138,6 @@
             color: white;
             flex-grow: 1;
             outline: none;
-            width: 100%;
         }
 
         button {
@@ -149,7 +149,6 @@
             cursor: pointer;
             text-transform: uppercase;
             font-size: 0.8rem;
-            white-space: nowrap;
         }
 
         .pillar-grid {
@@ -177,60 +176,6 @@
             font-size: 0.7rem;
             display: flex;
             justify-content: space-between;
-        }
-
-        /* --- MOBILE OPTIMIZATION OVERRIDES --- */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px 5%;
-            }
-
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0;
-            }
-
-            .hero {
-                padding: 80px 5% 40px;
-                text-align: left;
-            }
-
-            .delta-cta {
-                flex-direction: column;
-                padding: 30px 20px;
-                margin: 20px 5%;
-                text-align: center;
-            }
-
-            .form-group {
-                flex-direction: column;
-                background: transparent;
-                border: none;
-                gap: 10px;
-            }
-
-            input {
-                background: #000;
-                border: 1px solid var(--border);
-            }
-
-            button {
-                width: 100%;
-            }
-
-            footer {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
         }
     </style>
 </head>
@@ -272,21 +217,3 @@
         <div class="pillar">
             <h3>CLOUD SOVEREIGNTY</h3>
             <p>Maintaining control of the ground state regardless of where your data resides. Infrastructure governed by physics, not hype.</p>
-        </div>
-        <div class="pillar">
-            <h3>SECURITY FABRIC</h3>
-            <p>Leveraging the geometry of Fortinet to eliminate architectural entropy and reduce the attack surface through vector-perfect design.</p>
-        </div>
-        <div class="pillar">
-            <h3>THE OBSERVER</h3>
-            <p>Continuous monitoring of systems to maintain the ground state. Predictive maintenance driven by architectural constants.</p>
-        </div>
-    </div>
-
-    <footer>
-        <div>SOVEREIGN ARCHITECTURE // 2026</div>
-        <div style="color: var(--atomic-blue)">ATOMICPLANCK.IO</div>
-    </footer>
-
-</body>
-</html>
