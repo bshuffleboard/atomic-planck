@@ -21,11 +21,45 @@
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
             background-size: 80px 80px;
             background-attachment: fixed;
-            padding: 80px 8%;
+            line-height: 1.6;
         }
 
+        /* Standardized Brand Header */
+        header {
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--atomic-blue);
+            text-transform: uppercase;
+        }
+
+        /* Standardized Navigation */
         .back-nav {
-            margin-bottom: 40px;
+            padding: 40px 8% 0;
         }
 
         .back-nav a {
@@ -35,131 +69,177 @@
             letter-spacing: 2px;
             font-weight: 600;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
         .back-nav a:hover {
             color: var(--atomic-blue);
         }
 
+        .content-wrap {
+            padding: 40px 8% 100px;
+            max-width: 1000px;
+        }
+
         h1 {
             font-family: 'Courier New', monospace;
             font-size: 3.5rem;
             color: var(--atomic-blue);
-            margin: 0 0 20px 0;
+            margin: 0 0 10px 0;
             text-transform: uppercase;
         }
 
-        .archive-intro {
-            font-size: 1.2rem;
-            color: #a0a0a0;
-            max-width: 700px;
-            line-height: 1.6;
+        .subtitle {
+            color: #888;
+            font-family: monospace;
             margin-bottom: 60px;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
-        .issue-grid {
-            border-top: 1px solid var(--border);
+        /* Topic Cards */
+        .topic-card {
+            background: rgba(10, 10, 12, 0.8);
+            border: 1px solid var(--border);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            scroll-margin-top: 120px; /* Offset for sticky header */
         }
 
-        .issue-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 0;
-            border-bottom: 1px solid var(--border);
-            transition: background 0.3s ease;
+        .topic-card:hover {
+            border-color: rgba(0, 212, 255, 0.4);
         }
 
-        .issue-row:hover {
-            background: rgba(0, 212, 255, 0.03);
+        /* Target highlight for Outlook links */
+        .topic-card:target {
+            border-color: var(--atomic-blue);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+            background: rgba(0, 212, 255, 0.02);
         }
 
-        .issue-meta {
-            flex: 1;
-        }
-
-        .issue-number {
+        .tag {
             font-family: monospace;
             color: var(--atomic-blue);
-            font-size: 0.9rem;
-            margin-bottom: 5px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
         }
 
-        .issue-title {
-            font-size: 1.4rem;
+        .topic-title {
+            font-size: 1.8rem;
             font-weight: 700;
+            margin: 0 0 20px 0;
             color: white;
         }
 
-        .issue-status {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .status-active {
-            color: var(--atomic-blue);
+        .topic-content {
+            color: #a0a0a0;
+            font-size: 1.1rem;
         }
 
         footer {
-            margin-top: 100px;
+            margin-top: 60px;
             padding-top: 40px;
             border-top: 1px solid var(--border);
             color: #444;
             font-size: 0.8rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .topic-card { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="AP" class="brand-logo">
+            <div class="logo-text">AtomicPlanck</div>
+        </a>
+    </header>
+
     <nav class="back-nav">
-        <a href="index.html">← Return to Ground State</a>
+        <a href="index.html">← RETURN TO GROUND STATE</a>
     </nav>
 
-    <h1>The Delta Archive</h1>
-    <p class="archive-intro">
-        A 24-month roadmap of structural audits, cybersecurity physics, and the pursuit of a merged path. Insights for the Sovereign Architect.
-    </p>
+    <div class="content-wrap">
+        <h1>THE DELTA ARCHIVE</h1>
+        <div class="subtitle">// SELECTIVE ARCHITECTURAL AUDITS FOR TAMPA & SOUTH FLORIDA</div>
 
-    <div class="issue-grid">
-        <div class="issue-row">
-            <div class="issue-meta">
-                <div class="issue-number">ISSUE // 01</div>
-                <div class="issue-title">The Heat of Architectural Entropy</div>
+        <div id="sase" class="topic-card">
+            <span class="tag">// ARCHITECTURE // NETWORK</span>
+            <h2 class="topic-title">SASE Convergence vs. Perimeter Drift</h2>
+            <div class="topic-content">
+                <p>For organizations in South Florida with high-mobility workforces, the perimeter is no longer a physical boundary. This brief explores how the Fortinet Security Fabric merges ZTNA and SD-WAN into a single geometric constant.</p>
             </div>
-            <div class="issue-status status-active">[ RELEASED ]</div>
         </div>
 
-        <div class="issue-row">
-            <div class="issue-meta">
-                <div class="issue-number">ISSUE // 02</div>
-                <div class="issue-title">The Geometry of SD-WAN Convergence</div>
+        <div id="ztna" class="topic-card">
+            <span class="tag">// IDENTITY // SECURITY</span>
+            <h2 class="topic-title">The Simple Truth of ZTNA</h2>
+            <div class="topic-content">
+                <p>Zero Trust is a property of network geometry, not a product. We deconstruct how per-session verification reduces the attack surface without adding the operational "heat" of legacy complexity.</p>
             </div>
-            <div class="issue-status">[ PROVISIONING ]</div>
         </div>
 
-        <div class="issue-row">
-            <div class="issue-meta">
-                <div class="issue-number">ISSUE // 03</div>
-                <div class="issue-title">Sovereign Cloud vs. Vendor Drift</div>
+        <div id="fortios" class="topic-card">
+            <span class="tag">// UPDATES // FABRIC</span>
+            <h2 class="topic-title">FortiOS 7.x: Performance Audit</h2>
+            <div class="topic-content">
+                <p>A filtered review of the latest OS updates, specifically focusing on the features that impact distributed enterprise environments in the Tampa and Miami markets.</p>
             </div>
-            <div class="issue-status">[ PROVISIONING ]</div>
         </div>
 
-        <div class="issue-row">
-            <div class="issue-meta">
-                <div class="issue-number">ISSUE // 04</div>
-                <div class="issue-title">AI as the Intelligent Observer</div>
+        <div id="ot-security" class="topic-card">
+            <span class="tag">// OT // INDUSTRIAL</span>
+            <h2 class="topic-title">Securing the Supply Chain: OT/ICS Visibility</h2>
+            <div class="topic-content">
+                <p>From the Port of Tampa to Miami logistics hubs, OT is the region's backbone. We examine implementing Purdue Model security without disrupting industrial control physics.</p>
             </div>
-            <div class="issue-status">[ PROVISIONING ]</div>
         </div>
+
+        <div id="edu-safety" class="topic-card">
+            <span class="tag">// EDUCATION // COMPLIANCE</span>
+            <h2 class="topic-title">Digital Safety in K-12: Beyond CIPA</h2>
+            <div class="topic-content">
+                <p>Florida school districts face unique challenges in balancing safety with wireless demands. This brief looks at Fabric-integrated filtering at the Learning Edge.</p>
+            </div>
+        </div>
+
+        <div id="sovereignty" class="topic-card">
+            <span class="tag">// CLOUD // DATA</span>
+            <h2 class="topic-title">Cloud Sovereignty for Florida Legal & Finance</h2>
+            <div class="topic-content">
+                <p>As Miami grows as a financial hub, data residency is non-negotiable. We examine maintaining a "Golden Image" while keeping encryption keys in your hands.</p>
+            </div>
+        </div>
+
+        <div id="hygiene" class="topic-card">
+            <span class="tag">// HYGIENE // OPERATIONS</span>
+            <h2 class="topic-title">Structural Hygiene: Stopping Lateral Movement</h2>
+            <div class="topic-content">
+                <p>Ransomware spreads through noisy networks. We audit internal segmentation and how intelligent observation identifies anomalous vectors before they become catastrophic.</p>
+            </div>
+        </div>
+
+        <div id="sd-branch" class="topic-card">
+            <span class="tag">// BRANCH // WIRELESS</span>
+            <h2 class="topic-title">The SD-Branch: Simplifying the Distributed Edge</h2>
+            <div class="topic-content">
+                <p>For retail and healthcare clinics with dozens of Florida locations, we look at the "Simple Truth" of the unified branch: one OS, one policy, one Fabric.</p>
+            </div>
+        </div>
+
+        <footer>
+            ATOMICPLANCK.IO // TAMPA & SOUTH FLORIDA SYSTEMS ENGINEERING // 2026
+        </footer>
     </div>
-
-    <footer>
-        ATOMICPLANCK.IO // SOVEREIGN ARCHITECTURE // 2026
-    </footer>
 
 </body>
 </html>

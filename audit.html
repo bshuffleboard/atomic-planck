@@ -15,48 +15,143 @@
             background-color: var(--deep-obsidian);
             color: #e0e0e0;
             margin: 0;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-image: 
                 linear-gradient(var(--border) 1px, transparent 1px),
                 linear-gradient(90deg, var(--border) 1px, transparent 1px);
             background-size: 80px 80px;
             background-attachment: fixed;
-            padding: 80px 8%;
+            line-height: 1.6;
         }
 
-        .back-nav { margin-bottom: 40px; }
-        .back-nav a { 
-            color: #888; 
-            text-decoration: none; 
-            font-size: 0.8rem; 
-            letter-spacing: 2px; 
-            font-weight: 600;
+        /* Standardized Brand Header */
+        header {
+            padding: 30px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.95);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+        }
+
+        .brand-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--atomic-blue);
             text-transform: uppercase;
         }
-        .back-nav a:hover { color: var(--atomic-blue); }
 
-        h1 { font-family: 'Courier New', monospace; font-size: 3rem; color: var(--atomic-blue); margin: 0; }
-        .subtitle { color: #888; font-family: monospace; margin-top: 10px; letter-spacing: 1px; }
+        /* Standardized Navigation */
+        .back-nav {
+            padding: 40px 8% 0;
+        }
 
-        .audit-container {
+        .back-nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            color: var(--atomic-blue);
+        }
+
+        .content-wrap {
+            padding: 40px 8% 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Courier New', monospace;
+            font-size: 3.5rem;
+            color: var(--atomic-blue);
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: #888;
+            font-family: monospace;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Audit Layout */
+        .audit-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
-            margin-top: 60px;
-            max-width: 1200px;
+            margin-top: 20px;
         }
 
-        .audit-info h2 { color: white; font-size: 1.8rem; margin-bottom: 20px; }
-        .audit-info p { line-height: 1.6; color: #a0a0a0; margin-bottom: 20px; }
+        .audit-info h2 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
 
+        .audit-info p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .audit-list {
+            list-style: none;
+            padding: 0;
+            color: var(--atomic-blue);
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .audit-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Form Styling */
         form {
             background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--border);
             padding: 40px;
         }
 
-        .form-group { margin-bottom: 25px; }
-        label { display: block; color: var(--atomic-blue); font-family: monospace; font-size: 0.8rem; margin-bottom: 8px; }
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: var(--atomic-blue);
+            font-family: monospace;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
         
         input, select, textarea {
             width: 100%;
@@ -66,9 +161,14 @@
             color: white;
             font-family: inherit;
             box-sizing: border-box;
+            font-size: 1rem;
         }
 
-        input:focus { border-color: var(--atomic-blue); outline: none; }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--atomic-blue);
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+        }
 
         button {
             background: var(--atomic-blue);
@@ -80,72 +180,104 @@
             width: 100%;
             letter-spacing: 2px;
             text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
         }
 
         .location-tag {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
             color: var(--atomic-blue);
             font-weight: bold;
-            font-size: 0.9rem;
-            margin-top: 40px;
-            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            color: #444;
+            font-size: 0.8rem;
+            text-align: center;
         }
 
         @media (max-width: 900px) {
-            .audit-container { grid-template-columns: 1fr; }
+            .audit-grid { grid-template-columns: 1fr; gap: 40px; }
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="logo.png" alt="AP" class="brand-logo">
+            <div class="logo-text">AtomicPlanck</div>
+        </a>
+    </header>
+
     <nav class="back-nav">
         <a href="index.html">← RETURN TO GROUND STATE</a>
     </nav>
 
-    <h1>GEOMETRY AUDIT</h1>
-    <div class="subtitle">// ELIMINATING ARCHITECTURAL ENTROPY</div>
+    <div class="content-wrap">
+        <h1>GEOMETRY AUDIT</h1>
+        <div class="subtitle">// ARCHITECTURAL PEER REVIEW FOR THE SOVEREIGN ARCHITECT</div>
 
-    <div class="audit-container">
-        <div class="audit-info">
-            <h2>The Peer Review</h2>
-            <p>A Geometry Audit is a technical deep-dive into the "merged path" of your current infrastructure. As a Fortinet Systems Engineer, I facilitate these sessions to identify where vendor entropy is creating heat, friction, or visibility gaps.</p>
-            
-            <p><strong>This is not a sales discovery call.</strong> This is an engineering-first whiteboard session focused on:</p>
-            <ul style="color: #888; font-size: 0.9rem; line-height: 2;">
-                <li>Fabric Integration Analysis</li>
-                <li>Zero-Trust Vector Mapping</li>
-                <li>Converged SASE/SD-WAN Geometry</li>
-                <li>Operational Ground-State Optimization</li>
-            </ul>
+        <div class="audit-grid">
+            <div class="audit-info">
+                <h2>The Technical Deep-Dive</h2>
+                <p>As a Fortinet Systems Engineer serving the Tampa and South Florida markets, I facilitate Geometry Audits as high-value whiteboard sessions for my partners. This is not a sales discovery call; it is a structural review of your "Merged Path."</p>
+                
+                <p>Our focus is to identify where vendor entropy is creating visibility gaps or operational friction in your environment.</p>
+                
+                <ul class="audit-list">
+                    <li>[//] Fabric Integration Analysis</li>
+                    <li>[//] Zero-Trust Vector Mapping</li>
+                    <li>[//] Converged SASE/SD-WAN Geometry</li>
+                    <li>[//] OT & Industrial Logic Review</li>
+                </ul>
 
-            <span class="location-tag">SERVING TAMPA & SOUTH FLORIDA MARKETS</span>
+                <div class="location-tag">SERVING TAMPA & SOUTH FLORIDA SYSTEMS ENGINEERING</div>
+            </div>
+
+            <div class="audit-form">
+                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                    <div class="form-group">
+                        <label>FULL NAME</label>
+                        <input type="text" name="name" required placeholder="Lead Architect / Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label>CORPORATE EMAIL</label>
+                        <input type="email" name="email" required placeholder="name@company.com">
+                    </div>
+                    <div class="form-group">
+                        <label>AUDIT FOCUS</label>
+                        <select name="audit_type">
+                            <option value="sase">SASE / SD-WAN Convergence</option>
+                            <option value="ztna">ZTNA / Identity Geometry</option>
+                            <option value="ot">OT / Industrial Security</option>
+                            <option value="general">General Fabric Architecture</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>CURRENT ENTROPY / FRICTION POINTS</label>
+                        <textarea name="message" rows="4" placeholder="Briefly describe the current architectural challenges..."></textarea>
+                    </div>
+                    <button type="submit">REQUEST PEER REVIEW</button>
+                </form>
+            </div>
         </div>
 
-        <div class="audit-form">
-            <form action="#">
-                <div class="form-group">
-                    <label>FULL NAME</label>
-                    <input type="text" placeholder="Engineer/Architect Name">
-                </div>
-                <div class="form-group">
-                    <label>CORPORATE EMAIL</label>
-                    <input type="email" placeholder="name@company.com">
-                </div>
-                <div class="form-group">
-                    <label>PRIMARY FOCUS</label>
-                    <select>
-                        <option>SD-WAN / SASE Convergence</option>
-                        <option>Zero Trust (ZTNA)</option>
-                        <option>Cloud Sovereignty</option>
-                        <option>General Fabric Audit</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>BRIEF NOTES ON CURRENT ENTROPY</label>
-                    <textarea rows="4" placeholder="Describe current friction points..."></textarea>
-                </div>
-                <button type="submit">REQUEST AUDIT</button>
-            </form>
-        </div>
+        <footer>
+            ATOMICPLANCK.IO // TAMPA & SOUTH FLORIDA // 2026
+        </footer>
     </div>
 
 </body>
