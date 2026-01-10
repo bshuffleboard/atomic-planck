@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launch Sequence | AtomicPlanck.io</title>
+    <style>
+        :root {
+            --atomic-blue: #00d4ff;
+            --deep-obsidian: #0a0a0c;
+        }
+        body {
+            background-color: var(--deep-obsidian);
+            color: #e0e0e0;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        /* The ONLY addition: The return link */
+        .back-nav {
+            position: absolute;
+            top: 40px;
+            left: 8%;
+        }
+        .back-nav a {
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .back-nav a:hover { color: var(--atomic-blue); }
+
+        #timer {
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--atomic-blue);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        .label {
+            letter-spacing: 5px;
+            color: #444;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html">← RETURN TO GROUND STATE</a>
+    </nav>
+
+    <div id="timer">00:00:00:00</div>
+    <div class="label">T-MINUS TO FABRIC CONVERGENCE</div>
+
+    <script>
+        const launchDate = new Date().getTime() + (30 * 24 * 60 * 60 * 1000);
+
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                (days < 10 ? "0" + days : days) + ":" + 
+                (hours < 10 ? "0" + hours : hours) + ":" + 
+                (minutes < 10 ? "0" + minutes : minutes) + ":" + 
+                (seconds < 10 ? "0" + seconds : seconds);
+        }, 1000);
+    </script>
+</body>
+</html>
